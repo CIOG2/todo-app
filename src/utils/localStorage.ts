@@ -1,11 +1,11 @@
-const saveToLocalStorage = (key: string, value: any) => {
+const saveToLocalStorage = (value: any) => {
     const valueToSave = typeof value === 'string' ? value : JSON.stringify(value);
-    localStorage.setItem(key, valueToSave);
+    localStorage.setItem('todoList', valueToSave);
 }
 
-const getFromLocalStorage = (key: string) => {
-    const value = localStorage.getItem(key);
-    return value ? JSON.parse(value) : null;
+const getFromLocalStorage = () => {
+    const value = localStorage.getItem('todoList');
+    return value ? JSON.parse(value) : [];
 }
 
 export { saveToLocalStorage, getFromLocalStorage }
