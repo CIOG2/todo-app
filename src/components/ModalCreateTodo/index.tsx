@@ -5,18 +5,18 @@ import Styles from './styles.module.css';
 interface Props {
     modal: boolean;
     setModal: (todo: boolean) => void;
+    setTodoList: (todo: any) => void;
 }
 
-const ModalCreateTodo: FC<Props> = ({modal, setModal}) => {
+const ModalCreateTodo: FC<Props> = ({modal, setModal, setTodoList}) => {
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     const generateTodo = () => {
-        
         const textArea = textareaRef.current;
 
         if (textArea && textArea.value !== '') {
-            const todoList = getFromLocalStorage('todoList');
+            const todoList = getFromLocalStorage();
             const newTodo = {
                 text: textArea.value,
                 completed: false
@@ -24,12 +24,12 @@ const ModalCreateTodo: FC<Props> = ({modal, setModal}) => {
             
             if (todoList && typeof(todoList) === 'object') {
                 todoList.push(newTodo);
-                saveToLocalStorage('todoList', todoList);
+                saveToLocalStorage(todoList);
             }
             else
-                saveToLocalStorage('todoList', [newTodo]);
-
-                
+                saveToLocalStorage([newTodo]);
+            
+            setTodoList(todoList);  
             setModal(false);
         }
     }
