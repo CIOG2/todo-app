@@ -1,4 +1,5 @@
 import { useRef, FC } from 'react';
+import { getFromLocalStorage, saveToLocalStorage } from '../../utils/localStorage';
 import Styles from './styles.module.css';
 
 interface Props {
@@ -14,12 +15,22 @@ const ModalCreateTodo: FC<Props> = ({modal, setModal}) => {
         
         const textArea = textareaRef.current;
 
-        if (textArea) {
-            if (textArea.value !== '') {
-                
-                console.log(textArea.value);
-                setModal(false);
+        if (textArea && textArea.value !== '') {
+            const todoList = getFromLocalStorage('todoList');
+            const newTodo = {
+                text: textArea.value,
+                completed: false
             }
+            
+            if (todoList && typeof(todoList) === 'object') {
+                todoList.push(newTodo);
+                saveToLocalStorage('todoList', todoList);
+            }
+            else
+                saveToLocalStorage('todoList', [newTodo]);
+
+                
+            setModal(false);
         }
     }
 
