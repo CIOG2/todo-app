@@ -1,0 +1,27 @@
+.button{
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    width: 55px;
+    height: 55px;
+    font-size: 40px;
+    font-weight: 400;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    z-index: 5;
+    transition: all 0.3s;
+    user-select: none;
+}
+
+.open_modal{
+    background-color: white;     
+}
+
+.close__modal{
+    background-color: rgb(217, 14, 14);
+    color: white;
+    font-weight: 500;
+    transform: rotate(45deg);
+}
