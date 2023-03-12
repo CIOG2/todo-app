@@ -38,6 +38,7 @@ const Todo: FC<Props> = ({index, text, completed, setTodoList}) => {
                 <label className = {Styles['container__check']}>
                     <input 
                         type="checkbox"
+                        checked={completed}
                         onClick={() => completedTodo()}
                     />
                     <div className = {Styles['checkmark']}></div>
