@@ -1,15 +1,16 @@
 import { FC } from 'react';
-import { getFromLocalStorage, saveToLocalStorage } from '../../utils/localStorage';
-import Styles from './styles.module.css';
+import { getFromLocalStorage, saveToLocalStorage } from '@utils/localStorage';
+import Styles from '@components/Todo/styles.module.css';
+import TodoI from '@interfaces/todo';
 
 interface Props {
     index: number;
     text: string;
     completed: boolean;
-    setTodoList: (todo: any) => void;
+    setTodoList: (todo: TodoI[]) => void;
 }
 
-const Todo: FC<Props> = ({index, text, completed, setTodoList}) => {
+const Todo: FC<Props> = ({ index, text, completed, setTodoList }) => {
 
     const deleteTodo = () => {
         const todoList = getFromLocalStorage();
@@ -38,8 +39,9 @@ const Todo: FC<Props> = ({index, text, completed, setTodoList}) => {
                 <label className = {Styles['container__check']}>
                     <input 
                         type="checkbox"
-                        checked={completed}
-                        onClick={() => completedTodo()}
+                        checked={ completed }
+                        onClick={ completedTodo }
+                        onChange={()=>{}}
                     />
                     <div className = {Styles['checkmark']}></div>
                 </label>
@@ -55,7 +57,7 @@ const Todo: FC<Props> = ({index, text, completed, setTodoList}) => {
             
             <div className = {Styles['container']}>
                 <button
-                    onClick={() => deleteTodo()}
+                    onClick={ deleteTodo }
                 >
                     Borrar
                 </button>

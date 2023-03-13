@@ -1,14 +1,14 @@
 import { useRef, FC } from 'react';
-import { getFromLocalStorage, saveToLocalStorage } from '../../utils/localStorage';
-import Styles from './styles.module.css';
+import { getFromLocalStorage, saveToLocalStorage } from '@utils/localStorage';
+import Styles from '@components/ModalCreateTodo/styles.module.css';
+import TodoI from '@interfaces/todo';
 
 interface Props {
-    modal: boolean;
     setModal: (todo: boolean) => void;
-    setTodoList: (todo: any) => void;
+    setTodoList: (todo: TodoI[]) => void;
 }
 
-const ModalCreateTodo: FC<Props> = ({modal, setModal, setTodoList}) => {
+const ModalCreateTodo: FC<Props> = ({setModal, setTodoList}) => {
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -20,7 +20,7 @@ const ModalCreateTodo: FC<Props> = ({modal, setModal, setTodoList}) => {
             const newTodo = {
                 text: textArea.value,
                 completed: false
-            }
+            };
             
             if (todoList && typeof(todoList) === 'object') {
                 todoList.push(newTodo);
@@ -51,7 +51,7 @@ const ModalCreateTodo: FC<Props> = ({modal, setModal, setTodoList}) => {
                 <button
                     className = {Styles['section__form--button']}
                     type = 'button'
-                    onClick={() => generateTodo()}
+                    onClick = { generateTodo }
                 >
                     Crear TODO
                 </button>

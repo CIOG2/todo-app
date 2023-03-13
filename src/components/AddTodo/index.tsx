@@ -6,7 +6,7 @@ interface Props {
     setModal: (todo: boolean) => void;
 }
 
-const AddTodo: FC<Props> = ({modal, setModal}) => {
+const AddTodo: FC<Props> = ({ modal, setModal }) => {
     
     const changeModalState = () => setModal(!modal);
 
@@ -16,7 +16,7 @@ const AddTodo: FC<Props> = ({modal, setModal}) => {
                 ${Styles['button']} 
                 ${modal ? Styles['close__modal'] : Styles['open__modal']}
             `}
-            onClick = {() => changeModalState()}
+            onClick = { changeModalState }
         >
             +
         </button>    
