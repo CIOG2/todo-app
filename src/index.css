@@ -30,7 +30,7 @@ body{
   width: 100%;
   height: auto;
   min-height: 400px;
-  background-color: var(--dark-color);
+  background-color: #f0f0f0;
 }
 
 #root{
