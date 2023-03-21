@@ -1,7 +1,7 @@
 .button{
-    position: absolute;
+    position: fixed;
     right: 15px;
-    bottom: 15px;
+    bottom: 20px;
     width: 55px;
     height: 55px;
     font-size: 40px;
