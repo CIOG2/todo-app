@@ -18,8 +18,9 @@ function App() {
             />
             {modal && 
                 <ModalCreateTodo
+                    newTodo = {true}
                     setModal = {setModal}
-                    setTodoList = {setTodoList} 
+                    setTodoList = {setTodoList}
                 />
             }
             <section className = {Styles['main__section']}>
@@ -31,6 +32,7 @@ function App() {
                             text = {todo.text}
                             completed = {todo.completed}
                             setTodoList = {setTodoList}
+                            setModal = {setModal}
                         />
                     ))
                     :<p>No hay TODOs</p>  
