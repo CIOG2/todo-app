@@ -1,52 +1,23 @@
-import { FC } from 'react';
-import { getFromLocalStorage, saveToLocalStorage } from '@utils/localStorage';
+import { FC, useState } from 'react';
+import Options from './Options';
+import ModalCreateTodo from '@components/ModalCreateTodo';
 import Styles from '@components/Todo/styles.module.css';
-import TodoI from '@interfaces/todo';
+import PropsButtons from '@interfaces/propsButtons';
 
-interface Props {
-    index: number;
-    text: string;
-    completed: boolean;
-    setTodoList: (todo: TodoI[]) => void;
-}
+const Todo: FC<PropsButtons> = ( Props ) => {
 
-const Todo: FC<Props> = ({ index, text, completed, setTodoList }) => {
-
-    const deleteTodo = () => {
-        const todoList = getFromLocalStorage();
-        if (todoList && typeof(todoList) === 'object') {
-            todoList.splice(index, 1);
-            saveToLocalStorage(todoList);
-            setTodoList(todoList);  
-        }
-    }
-
-    const completedTodo = () => {
-        const todoList = getFromLocalStorage();
-        if (todoList && typeof(todoList) === 'object') {
-            todoList[index].completed = !todoList[index].completed;
-            saveToLocalStorage(todoList);
-            setTodoList(todoList);
-        }
-    }
-
+    const { index, setModal, setTodoList } = Props;
+    const [ isEdit, setIsEdit ] = useState(false);
+    const {text, completed} = Props;
+    
     return (
-        <article className = {`
-            ${Styles['article']}
-            ${completed && Styles['todo__completed']}   
-        `}>
-            <div className = {Styles['container']}>
-                <label className = {Styles['container__check']}>
-                    <input 
-                        type="checkbox"
-                        checked={ completed }
-                        onClick={ completedTodo }
-                        onChange={()=>{}}
-                    />
-                    <div className = {Styles['checkmark']}></div>
-                </label>
-            </div>
-            
+        <article 
+            className = {`
+                ${Styles['article']}
+                ${completed && Styles['todo__completed']}   
+            `}
+            id = {`article-todo-${Props.index}`}    
+        >            
             <p  className = {`
                     ${Styles['article__text']}
                     ${completed && Styles['todo__completed--text']}   
@@ -55,13 +26,23 @@ const Todo: FC<Props> = ({ index, text, completed, setTodoList }) => {
                 {text}
             </p>
             
-            <div className = {Styles['container']}>
-                <button
-                    onClick={ deleteTodo }
-                >
-                    Borrar
-                </button>
+            <div className = {Styles['container']} id = {`item-${Props.index}`}>
+                <Options 
+                    {...Props}
+                    setIsEdit={setIsEdit}
+                />
             </div>
+
+            {isEdit &&
+                <ModalCreateTodo
+                    newTodo={false}
+                    index={index}
+                    setModal={setModal}
+                    setTodoList={setTodoList}
+                    setIsEdit={setIsEdit}
+                />
+            }
+
         </article>
     )
 }
