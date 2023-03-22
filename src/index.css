@@ -64,3 +64,27 @@ li{
 .display-none{
   display: none;
 }
+
+.todo-edit{
+  animation: pulseColor 1.5s infinite;
+  transition: all .3s;
+}
+
+
+@keyframes pulseColor{
+  0%{
+    background-color: white;
+  }
+  25%{
+    background-color: #abff87;
+  }
+  50%{
+    background-color: white;
+  }
+  75%{
+    background-color: #abff87;
+  }
+  100%{
+    background-color: white;
+  }
+}
