@@ -1,6 +1,6 @@
 import { useRef, FC } from 'react';
 import { getFromLocalStorage, saveToLocalStorage } from '@utils/localStorage';
-import { removeDisplayNone } from '@utils/DOM';
+import { removeDisplayNone, addIsEditing, removeIsEditing } from '@utils/DOM';
 import Styles from '@components/ModalCreateTodo/styles.module.css';
 import TodoI from '@interfaces/todo';
 
@@ -16,6 +16,17 @@ const ModalCreateTodo: FC<Props> = ({newTodo, index, setModal, setTodoList, setI
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     
+    const todoEditEfectDOM = () => {
+        if(index !== undefined){
+            removeDisplayNone(index);
+            addIsEditing(index);
+
+            setTimeout(() => {
+                removeIsEditing(index);
+            }, 1500);
+        }
+    }
+
     const generateTodo = () => {
         const textArea = textareaRef.current;
 
@@ -37,17 +48,19 @@ const ModalCreateTodo: FC<Props> = ({newTodo, index, setModal, setTodoList, setI
                 if (todoList && typeof(todoList) === 'object' && index !== undefined) {
                     todoList[index] = todo;
                     saveToLocalStorage(todoList);
-                    removeDisplayNone(index);
+                    setTimeout(() => {
+                        todoEditEfectDOM();
+                    }, 10);
                     if (setIsEdit)
                         setIsEdit(false);
+                    }
                 }
-            }
             
             setTodoList(todoList);  
             setModal(false);
-            
         }
     }
+
 
     const closeModal = () => {
         if(index !== undefined && setIsEdit){
