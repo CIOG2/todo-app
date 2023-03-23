@@ -1,0 +1,80 @@
+:root{
+    --color-point: #3f3f3f;
+    --size-point: 5px;
+}
+
+.container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+
+.container__button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+
+
+.shadow{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
+.close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(220, 45, 45);
+    border-radius: 50%;
+}
+
+.points{
+    position: relative;
+    width: var(--size-point);
+    height: var(--size-point);
+    border-radius: 50%;
+    background-color: var(--color-point);
+}
+
+.points::before{
+    content: '';
+    position: absolute;
+    width: var(--size-point);
+    height: var(--size-point);
+    border-radius: 50%;
+    background-color: var(--color-point);
+    left: 8px;
+
+}
+
+.points::after{
+    content: '';
+    position: absolute;
+    width: var(--size-point);
+    height: var(--size-point);
+    border-radius: 50%;
+    background-color: var(--color-point);
+    right: 8px;
+}
