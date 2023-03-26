@@ -22,8 +22,11 @@
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    outline: none;
     user-select: none;
+}
+
+.container__button:focus{
+    outline: 2px solid #3f3f3f;
 }
 
 
@@ -48,6 +51,11 @@
     color: white;
     background-color: rgba(220, 45, 45);
     border-radius: 50%;
+    border: none;
+}
+
+.close:focus{
+    outline: 2px solid white;
 }
 
 .points{
