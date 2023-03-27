@@ -86,10 +86,11 @@ const ModalCreateTodo: FC<Props> = ({newTodo, index, setModal, setTodoList, setI
         <section className = {Styles['section']}> 
             <form className = {Styles['section__form']}>
                 { !newTodo &&
-                    <div
-                        className = {Styles['section__close']}
+                    <button
+                        className = {Styles['section__button--close']}
                         onClick = { closeModal }
-                    > X </div>
+                        aria-label="Close modal"
+                    > X </button>
                 }
                 <label
                     className = {Styles['section__form--label']}

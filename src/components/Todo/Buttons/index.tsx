@@ -73,6 +73,7 @@ const Buttons: FC<Props> = ({ index, completed, setTodoList, setIsEdit, setIsOpt
             <button
                 className={Styles['options__button']}
                 ref={completeRef}
+                aria-label="Completar todo"
             >
                 <div className={Styles['checkbox-wrapper-31']}>
                     <input 
@@ -92,6 +93,7 @@ const Buttons: FC<Props> = ({ index, completed, setTodoList, setIsEdit, setIsOpt
                 className={Styles['options__button']}
                 ref={editRef}
                 onClick={ editTodo }
+                aria-label="Editar todo"
             >
                 <img 
                     src="/edit.svg" 
@@ -102,6 +104,7 @@ const Buttons: FC<Props> = ({ index, completed, setTodoList, setIsEdit, setIsOpt
             <button
                 className={Styles['options__button']}
                 ref={deleteRef}
+                aria-label="Borrar todo"
             >
                 <img 
                     src="/trash.svg" 
