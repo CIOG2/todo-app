@@ -15,7 +15,7 @@ interface Props {
 const ModalCreateTodo: FC<Props> = ({newTodo, index, setModal, setTodoList, setIsEdit}) => {
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
-    
+
     const todoEditEfectDOM = () => {
         if(index !== undefined){
             removeDisplayNone(index);
@@ -27,6 +27,11 @@ const ModalCreateTodo: FC<Props> = ({newTodo, index, setModal, setTodoList, setI
         }
     }
 
+    const randomColor = () => {
+        const color = Math.floor(Math.random() * 16777215).toString(16);
+        return `#${color}`;
+    }
+
     const generateTodo = () => {
         const textArea = textareaRef.current;
 
@@ -34,7 +39,8 @@ const ModalCreateTodo: FC<Props> = ({newTodo, index, setModal, setTodoList, setI
             const todoList = getFromLocalStorage();
             const todo = {
                 text: textArea.value,
-                completed: false
+                completed: false,
+                color: newTodo ? randomColor() : todoList[index!].color,    
             };
             
             if(newTodo) {
