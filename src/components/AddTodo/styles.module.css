@@ -8,8 +8,8 @@
     font-weight: 400;
     cursor: pointer;
     border-radius: 50%;
-    border: none;
-    z-index: 5;
+    z-index: 2;
+    border: 1px solid #acacac;
     transition: all 0.3s;
     user-select: none;
 }
@@ -20,7 +20,7 @@
 
 
 .open__modal{
-    background-color: white;     
+    background-color: white;
 }
 
 .close__modal{
@@ -28,6 +28,7 @@
     color: white;
     font-weight: 500;
     transform: rotate(45deg);
+    z-index: 5;
 }
 
 .close__modal:focus{
