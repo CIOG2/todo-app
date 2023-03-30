@@ -6,27 +6,27 @@ import PropsButtons from '@interfaces/propsButtons';
 
 const Todo: FC<PropsButtons> = ( Props ) => {
 
-    const { index, setModal, setTodoList } = Props;
+    const { text, completed, index, setModal, setTodoList, color} = Props;
     const [ isEdit, setIsEdit ] = useState(false);
-    const {text, completed} = Props;
-    
+
     return (
         <article 
             className = {`
                 ${Styles['article']}
                 ${completed && Styles['todo__completed']}   
             `}
-            id = {`article-todo-${Props.index}`}    
+            id = {`article-todo-${index}`}    
         >            
             <p  className = {`
                     ${Styles['article__text']}
                     ${completed && Styles['todo__completed--text']}   
                 `}
+                style={!completed ? {color: color} : {color: 'black'}}
             >
                 {text}
             </p>
             
-            <div className = {Styles['container']} id = {`item-${Props.index}`}>
+            <div className = {Styles['container']} id = {`item-${index}`}>
                 <Options 
                     {...Props}
                     setIsEdit={setIsEdit}
@@ -43,6 +43,11 @@ const Todo: FC<PropsButtons> = ( Props ) => {
                 />
             }
 
+            <div 
+                className={Styles['shadow__box--color']}
+                style={!completed ? {backgroundColor: color} : {backgroundColor: 'gray'}}
+            >
+            </div>
         </article>
     )
 }
