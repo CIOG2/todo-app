@@ -1,4 +1,5 @@
 .article{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,9 +8,21 @@
     min-height: 60px;
     max-width: 500px;
     background-color: white;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+    border-radius: 15px;
+    border: 1px solid black;
 }
+
+.shadow__box--color{
+    position: absolute;
+    width: calc(100% + 3px);
+    height: calc(100% + 3px);
+    border-radius: 15px;
+    right: -6px;
+    bottom: -6px;
+    z-index: -1;
+    border: 1px solid black;
+}
+
 
 .todo__completed{
     background-color: gray;
@@ -36,8 +49,9 @@
     height: 100%;
     padding: 10px 20px;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
     color: black;
+    text-shadow: 0px 0px .1px black;
 }
 
 /* Hide the default checkbox */
