@@ -23,7 +23,7 @@
     max-width: 500px;
     padding: 20px 0;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .section__button--close{
@@ -56,7 +56,7 @@
     font-weight: 500;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 20px;
+    border-radius: 15px;
     resize: none;
 }
 
@@ -64,7 +64,7 @@
     width: 80%;
     padding: 10px;
     border: none;
-    border-radius: 20px;
+    border-radius: 15px;
     background-color: #13c0c0;
     color: white;
     font-size: 1.5rem;
