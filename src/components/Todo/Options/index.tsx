@@ -17,17 +17,16 @@ const Options = (props: Props) => {
 
     return (
         <div className = {Styles['container']}>
-            <button 
+            <div 
                 className = {Styles['container__button']}
                 style = {isOptionsOpen ? {zIndex: 15} : {zIndex: 0}}
                 onClick = { () => openOptions() }
-                aria-label="Open options"
             >
                 {isOptionsOpen 
                     ?<button aria-label='Cerrar opciones' className={ Styles["close"] }>X</button>
                     :<div className={ Styles["points"] }></div>
                 }
-            </button>
+            </div>
 
             {isOptionsOpen &&     
                 <>
