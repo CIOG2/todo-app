@@ -3,6 +3,7 @@ import { getFromLocalStorage } from '@utils/localStorage';
 import AddTodo from '@components/AddTodo';
 import ModalCreateTodo from '@components/ModalCreateTodo';
 import Todo from '@components/Todo';
+import CountTodos from '@components/CountTodos';
 import Styles from './App.module.css';
 import TodoI from '@interfaces/todo';
 
@@ -12,6 +13,11 @@ function App() {
 
     return (
         <main className = {Styles['main']}>
+            
+            <CountTodos
+                todoList = {todoList}
+            />
+            
             <AddTodo 
                 modal = {modal}
                 setModal = {setModal}
@@ -30,12 +36,17 @@ function App() {
                             key = {index}
                             index = {index}
                             text = {todo.text}
+                            color = {todo.color}
                             completed = {todo.completed}
                             setTodoList = {setTodoList}
                             setModal = {setModal}
                         />
                     ))
-                    :<p>No hay TODOs</p>  
+                    :<img 
+                        src='/flecha.png'
+                        alt='flecha'
+                        className = {Styles['main__section--img']}    
+                    />  
                 }
             </section>
         </main>
