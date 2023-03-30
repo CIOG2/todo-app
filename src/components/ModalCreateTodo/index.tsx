@@ -88,6 +88,11 @@ const ModalCreateTodo: FC<Props> = ({newTodo, index, setModal, setTodoList, setI
         return '';
     }
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.key === 'Enter')
+            generateTodo();
+    };
+
     return (
         <section className = {Styles['section']}> 
             <form className = {Styles['section__form']}>
@@ -108,6 +113,7 @@ const ModalCreateTodo: FC<Props> = ({newTodo, index, setModal, setTodoList, setI
                     className = {Styles['section__form--textarea']}
                     ref = {textareaRef}
                     defaultValue = {newTodo ? '' : getTextTodo()}
+                    onKeyDown = { handleKeyDown }
                 ></textarea>
 
                 <button
