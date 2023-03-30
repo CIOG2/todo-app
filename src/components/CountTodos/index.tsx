@@ -15,9 +15,9 @@ const CountTodos: FC<Props> = ({ todoList }) => {
         if (totalTodos === 0)
             return `No hay nada por aqui`;
         else if (todoCompleted === totalTodos)
-            return `Terminaste todos tus TODO'S`;
+            return `Terminaste todos tus TODOs`;
         else
-            return `Llevas ${todoCompleted} todo's de ${totalTodos}`;
+            return `Llevas ${todoCompleted} TODOs de ${totalTodos}`;
     }
     
 
