@@ -5,7 +5,7 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     max-width: 1200px;
     min-height: 300px;
 }
@@ -20,4 +20,32 @@
     width: 100%;
     height: auto;
     max-width: 1200px;
+    padding-bottom: 80px;
+}
+
+.main__section--img{
+    position: fixed;
+    width: 150px;
+    right: 108px;
+    bottom: 5px;
+    transform: rotate(322deg);
+    animation: move 5s infinite linear;
+}
+
+@keyframes move{
+    0%{
+        transform: translate(0, 0) rotate(322deg);
+    }
+    25%{
+        transform: translate(-2px, -2px) rotate(322deg);
+    }
+    50%{
+        transform: translate(0, 0) rotate(322deg);
+    }
+    75%{
+        transform: translate(2px, 2px) rotate(322deg);
+    }
+    100%{
+        transform: translate(0, 0) rotate(322deg);
+    }
 }
