@@ -49,6 +49,9 @@ const Buttons: FC<Props> = ({ index, completed, setTodoList, setIsEdit, setIsOpt
             todoList[index].completed = !todoList[index].completed;
             saveToLocalStorage(todoList);
             setTodoList(todoList);
+            setTimeout(() => {
+                setIsOptionsOpen(false);
+            }, 550);
         }
     }
 

@@ -16,8 +16,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background-color: transparent;
     border-radius: 50%;
     border: none;
@@ -44,14 +44,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     font-size: 15px;
     font-weight: 600;
     color: white;
     background-color: rgba(220, 45, 45);
     border-radius: 50%;
     border: none;
+    cursor: pointer;
 }
 
 .close:focus{
